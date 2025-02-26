@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FlatServiceApplicationTests" project="FlatService" tests="7" started="7" failures="0" errors="7" ignored="0">
+  <testsuite name="com.example.demo.FlatServiceApplicationTests" time="0.031" displayname="FlatServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]">
+    <testcase name="testAddFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.018" displayname="testAddFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testAddFlat()]">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	Optional cannot be resolved
+	The method assertThrows(Class&lt;FlatNotFoundException&gt;, () -&gt; {}) is undefined for the type FlatServiceApplicationTests
+	List cannot be resolved to a type
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	The method assertEquals(int, int) in the type Assertions is not applicable for the arguments (int)
+	Syntax error, insert ")" to complete MethodInvocation
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete ClassBody
+&#13;
+	at com.example.demo.FlatServiceApplicationTests.&lt;init&gt;(FlatServiceApplicationTests.java:43)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)&#13;
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAllFlats" classname="com.example.demo.FlatServiceApplicationTests" time="0.001" displayname="testGetAllFlats()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetAllFlats()]">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	Optional cannot be resolved
+	The method assertThrows(Class&lt;FlatNotFoundException&gt;, () -&gt; {}) is undefined for the type FlatServiceApplicationTests
+	List cannot be resolved to a type
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	The method assertEquals(int, int) in the type Assertions is not applicable for the arguments (int)
+	Syntax error, insert ")" to complete MethodInvocation
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete ClassBody
+&#13;
+	at com.example.demo.FlatServiceApplicationTests.&lt;init&gt;(FlatServiceApplicationTests.java:43)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)&#13;
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testUpdateFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.001" displayname="testUpdateFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testUpdateFlat()]">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	Optional cannot be resolved
+	The method assertThrows(Class&lt;FlatNotFoundException&gt;, () -&gt; {}) is undefined for the type FlatServiceApplicationTests
+	List cannot be resolved to a type
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	The method assertEquals(int, int) in the type Assertions is not applicable for the arguments (int)
+	Syntax error, insert ")" to complete MethodInvocation
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete ClassBody
+&#13;
+	at com.example.demo.FlatServiceApplicationTests.&lt;init&gt;(FlatServiceApplicationTests.java:43)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)&#13;
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAllAvailableFlats" classname="com.example.demo.FlatServiceApplicationTests" time="0.001" displayname="testGetAllAvailableFlats()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetAllAvailableFlats()]">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	Optional cannot be resolved
+	The method assertThrows(Class&lt;FlatNotFoundException&gt;, () -&gt; {}) is undefined for the type FlatServiceApplicationTests
+	List cannot be resolved to a type
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	The method assertEquals(int, int) in the type Assertions is not applicable for the arguments (int)
+	Syntax error, insert ")" to complete MethodInvocation
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete ClassBody
+&#13;
+	at com.example.demo.FlatServiceApplicationTests.&lt;init&gt;(FlatServiceApplicationTests.java:43)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)&#13;
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.001" displayname="testGetFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetFlat()]">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	Optional cannot be resolved
+	The method assertThrows(Class&lt;FlatNotFoundException&gt;, () -&gt; {}) is undefined for the type FlatServiceApplicationTests
+	List cannot be resolved to a type
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	The method assertEquals(int, int) in the type Assertions is not applicable for the arguments (int)
+	Syntax error, insert ")" to complete MethodInvocation
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete ClassBody
+&#13;
+	at com.example.demo.FlatServiceApplicationTests.&lt;init&gt;(FlatServiceApplicationTests.java:43)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)&#13;
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testDeleteFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.001" displayname="testDeleteFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testDeleteFlat()]">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	Optional cannot be resolved
+	The method assertThrows(Class&lt;FlatNotFoundException&gt;, () -&gt; {}) is undefined for the type FlatServiceApplicationTests
+	List cannot be resolved to a type
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	The method assertEquals(int, int) in the type Assertions is not applicable for the arguments (int)
+	Syntax error, insert ")" to complete MethodInvocation
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete ClassBody
+&#13;
+	at com.example.demo.FlatServiceApplicationTests.&lt;init&gt;(FlatServiceApplicationTests.java:43)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)&#13;
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetFlat_NotFound" classname="com.example.demo.FlatServiceApplicationTests" time="0.001" displayname="testGetFlat_NotFound()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetFlat_NotFound()]">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	Optional cannot be resolved
+	The method assertThrows(Class&lt;FlatNotFoundException&gt;, () -&gt; {}) is undefined for the type FlatServiceApplicationTests
+	List cannot be resolved to a type
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	The method any(Class&lt;Flat&gt;) is undefined for the type FlatServiceApplicationTests
+	Optional cannot be resolved
+	The method doNothing() is undefined for the type FlatServiceApplicationTests
+	Arrays cannot be resolved
+	List cannot be resolved to a type
+	The method assertEquals(int, int) in the type Assertions is not applicable for the arguments (int)
+	Syntax error, insert ")" to complete MethodInvocation
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete ClassBody
+&#13;
+	at com.example.demo.FlatServiceApplicationTests.&lt;init&gt;(FlatServiceApplicationTests.java:43)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)&#13;
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

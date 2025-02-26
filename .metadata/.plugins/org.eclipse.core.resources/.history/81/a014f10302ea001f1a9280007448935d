@@ -1,0 +1,31 @@
+package com.example.aop;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.hibernate.annotations.Comment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+@Component
+@Aspect
+public class LoggerAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    
+    // Define a pointcut for all the methods in controller classes
+    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
+    public void springBeanPointcut() {
+        // Method is empty as this is just a Pointcut, the implementations are in the advices.
+    }
+    
+//    @Before("execution(* com.example.controller.*)")
+    @Before("applicationPackagePointcut()")
+    public void logBeforeMethod(JoinPoint joinPoint) {
+        logger.info("Entering method: {} with arguments: {}", joinPoint.getSignature().toShortString(), joinPoint.getArgs());
+    }    
+    
+    
+}

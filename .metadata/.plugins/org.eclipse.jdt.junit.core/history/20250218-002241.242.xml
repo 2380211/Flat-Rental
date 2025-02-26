@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FlatServiceApplicationTests" project="FlatService" tests="7" started="7" failures="0" errors="1" ignored="0">
+  <testsuite name="com.example.demo.FlatServiceApplicationTests" time="0.431" displayname="FlatServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]">
+    <testcase name="testAddFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.218" displayname="testAddFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testAddFlat()]"/>
+    <testcase name="testGetAllFlats" classname="com.example.demo.FlatServiceApplicationTests" time="0.021" displayname="testGetAllFlats()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetAllFlats()]"/>
+    <testcase name="testUpdateFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.082" displayname="testUpdateFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testUpdateFlat()]">
+      <error>org.mockito.exceptions.base.MockitoException: 
+Only void methods can doNothing()!
+Example of correct use of doNothing():
+    doNothing().
+    doThrow(new RuntimeException())
+    .when(mock).someVoidMethod();
+Above means:
+someVoidMethod() does nothing the 1st time but throws an exception the 2nd time is called&#13;
+	at com.example.demo.FlatServiceApplicationTests.testUpdateFlat(FlatServiceApplicationTests.java:78)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAllAvailableFlats" classname="com.example.demo.FlatServiceApplicationTests" time="0.011" displayname="testGetAllAvailableFlats()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetAllAvailableFlats()]"/>
+    <testcase name="testGetFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.022" displayname="testGetFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetFlat()]"/>
+    <testcase name="testDeleteFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.019" displayname="testDeleteFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testDeleteFlat()]"/>
+    <testcase name="testGetFlat_NotFound" classname="com.example.demo.FlatServiceApplicationTests" time="0.02" displayname="testGetFlat_NotFound()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetFlat_NotFound()]"/>
+  </testsuite>
+</testrun>

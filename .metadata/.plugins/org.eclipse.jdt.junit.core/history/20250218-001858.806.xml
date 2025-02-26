@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FlatServiceApplicationTests" project="FlatService" tests="7" started="7" failures="0" errors="7" ignored="0">
+  <testsuite name="com.example.demo.FlatServiceApplicationTests" time="0.155" displayname="FlatServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]">
+    <testcase name="testAddFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.081" displayname="testAddFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testAddFlat()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.example.entity.Flat.setFlatId(java.lang.Integer)" because "this.flat" is null&#13;
+	at com.example.demo.FlatServiceApplicationTests.setUp(FlatServiceApplicationTests.java:38)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAllFlats" classname="com.example.demo.FlatServiceApplicationTests" time="0.012" displayname="testGetAllFlats()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetAllFlats()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.example.entity.Flat.setFlatId(java.lang.Integer)" because "this.flat" is null&#13;
+	at com.example.demo.FlatServiceApplicationTests.setUp(FlatServiceApplicationTests.java:38)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testUpdateFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.008" displayname="testUpdateFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testUpdateFlat()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.example.entity.Flat.setFlatId(java.lang.Integer)" because "this.flat" is null&#13;
+	at com.example.demo.FlatServiceApplicationTests.setUp(FlatServiceApplicationTests.java:38)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAllAvailableFlats" classname="com.example.demo.FlatServiceApplicationTests" time="0.007" displayname="testGetAllAvailableFlats()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetAllAvailableFlats()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.example.entity.Flat.setFlatId(java.lang.Integer)" because "this.flat" is null&#13;
+	at com.example.demo.FlatServiceApplicationTests.setUp(FlatServiceApplicationTests.java:38)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.008" displayname="testGetFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetFlat()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.example.entity.Flat.setFlatId(java.lang.Integer)" because "this.flat" is null&#13;
+	at com.example.demo.FlatServiceApplicationTests.setUp(FlatServiceApplicationTests.java:38)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testDeleteFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.01" displayname="testDeleteFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testDeleteFlat()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.example.entity.Flat.setFlatId(java.lang.Integer)" because "this.flat" is null&#13;
+	at com.example.demo.FlatServiceApplicationTests.setUp(FlatServiceApplicationTests.java:38)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetFlat_NotFound" classname="com.example.demo.FlatServiceApplicationTests" time="0.007" displayname="testGetFlat_NotFound()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testGetFlat_NotFound()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.example.entity.Flat.setFlatId(java.lang.Integer)" because "this.flat" is null&#13;
+	at com.example.demo.FlatServiceApplicationTests.setUp(FlatServiceApplicationTests.java:38)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

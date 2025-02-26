@@ -1,0 +1,74 @@
+package com.example.service;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.client.FlatClient;
+import com.example.dto.FlatDTO;
+import com.example.entity.Booking;
+import com.example.exception.BookingNotFoundException;
+import com.example.repository.BookingRepository;
+
+@Service
+public class BookingServiceImpl implements BookingService {
+
+	@Autowired
+	BookingRepository repo ;
+	
+	@Autowired
+	FlatClient flatClient ;
+
+	public String bookFlat( int tenantId,  int flatId) {
+		
+		FlatDTO flatDTO = flatClient.getFlat(flatId) ;
+		if(flatDTO.getStatus().equals("BOOKED")) {
+			return "Flat already booked" ;
+		}
+		
+		Booking booking = new Booking();
+		booking.setBookingTime(LocalDate.now());
+		booking.setFlatId(flatId);
+		booking.setTenantId(tenantId);
+		repo.save(booking) ;
+		flatClient.setStatus(flatId, "BOOKED");
+		return "Flat booked Successfully" ; 
+	}
+
+	@Override
+	public Booking getBooking(int bookingId) throws BookingNotFoundException {
+		Optional<Booking> op =  repo.findById(bookingId) ;	 
+		if(op.isEmpty()) {
+			throw new BookingNotFoundException("Booking Not Found") ;
+		}
+		return op.get() ;
+	}
+
+	@Override
+	public List<Booking> getAllBookings() {
+		return repo.findAll()	 ;
+	}
+
+	@Override
+	public String updateBooking(Booking booking) throws BookingNotFoundException {
+		getBooking(booking.getBookingId()) ;   // For exception handling
+		repo.save(booking) ;
+		return "Booking details updated successfully" ;
+	}
+
+	public String cancelBooking(int flatId) throws BookingNotFoundException {
+				
+		FlatDTO flat = flatClient.getFlat(flatId) ;
+		Booking booking = repo.getAllBookingOfFlat(flatId);
+		
+		repo.deleteById(booking.getBookingId());
+		flatClient.setStatus(flatId, "AVAILABLE");
+		return "Booking canceled";
+	}
+
+		
+
+}

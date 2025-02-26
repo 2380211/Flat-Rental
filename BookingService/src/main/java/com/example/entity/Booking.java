@@ -1,0 +1,28 @@
+package com.example.entity;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Booking {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer bookingId;
+	@NotNull(message = "Tenant ID cannot be null")
+	private Integer tenantId;
+	@NotNull(message = "Flat ID cannot be null")
+	private Integer flatId;
+
+	private LocalDate bookingDate ;
+}

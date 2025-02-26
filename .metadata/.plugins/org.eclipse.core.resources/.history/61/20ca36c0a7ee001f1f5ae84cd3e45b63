@@ -1,0 +1,13 @@
+spring.application.name=TenantService
+server.port=3333
+ 
+spring.datasource.url=jdbc:mysql://localhost:3306/tenantdb?createDatabaseIfNotExist=true
+
+spring.config.import=optional:configserver:http://localhost:4321
+
+
+resilience4j.circuitbreaker.configs.default.registerHealthIndicator=true
+resilience4j.circuitbreaker.configs.default.waitDurationInOpenState=10000
+resilience4j.circuitbreaker.configs.default.failureRateThreshold=50
+resilience4j.retry.instances.backendA.maxAttempts=3
+resilience4j.retry.instances.backendA.waitDuration=5000

@@ -1,0 +1,57 @@
+package com.example.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.entity.Booking;
+import com.example.repository.BookingRepository;
+
+import dto.BookingDTO;
+
+@Service
+public class BookingServiceImpl implements BookingService {
+
+	@Autowired
+	BookingRepository repo ;
+
+	@Override
+	public String addBooking(Booking booking) {
+		repo.save(booking) ;
+		return "Booking added successfully" ; 
+	}
+
+	@Override
+	public Booking getBooking(int bookingId) {
+		Optional<Booking> optional =  repo.findById(bookingId) ;
+		return optional.get()	 ;
+	}
+
+	@Override
+	public List<Booking> getAllBookings() {
+		return repo.findAll()	 ;
+	}
+
+	@Override
+	public String updateBooking(Booking booking) {
+		repo.save(booking) ;
+		return "Booking details updated successfully" ;
+	}
+
+	@Override
+	public String deleteBooking(int bookingId) {
+		repo.deleteById(bookingId);
+		return "Booking canceled";
+	}
+
+	@Override
+	public List<BookingDTO> getAllBookingOfFlat(int flatId) {
+		return repo.getAllBookingOfFlat(flatId) ;
+		
+	}
+	
+	
+
+}

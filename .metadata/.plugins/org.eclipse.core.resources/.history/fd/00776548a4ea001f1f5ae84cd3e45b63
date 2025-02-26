@@ -1,0 +1,20 @@
+package com.example.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class TenantDTO {
+
+	private int tenantId;
+	@NotBlank(message = "Tenant name cannot be blank")
+	private String tenantName ;
+	@NotBlank(message = "Tenant age cannot be blank")
+	private int tenantAge  ;
+	@NotBlank(message = "Flat Id cannot be blank")
+	private int flatId ;
+}

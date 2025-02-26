@@ -1,0 +1,48 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.entity.Booking;
+import com.example.repository.BookingRepository;
+
+@Service
+public class BookingServiceImpl implements BookingService {
+
+	@Autowired
+	BookingRepository repo ;
+
+	@Override
+	public String addBooking(Booking booking) {
+		return "Flat added successfully" ; 
+	}
+
+	@Override
+	public Booking getBooking(int bookingId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Booking> getAllBookings() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateBooking(Booking booking) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteBooking(int bookingId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
+}

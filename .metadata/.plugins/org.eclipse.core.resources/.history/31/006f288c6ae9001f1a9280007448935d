@@ -1,0 +1,17 @@
+spring.application.name=LandlordService
+server.port=2222
+ 
+################### DataSource Configuration ##########################
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/landlorddb?createDatabaseIfNotExist=true
+#spring.datasource.username=root
+#spring.datasource.password=2380211@cognizant
+ 
+################### Hibernate Configuration ##########################
+ 
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.show-sql=true
+
+
+spring.config.import=optional:configserver:http//localhost:9999

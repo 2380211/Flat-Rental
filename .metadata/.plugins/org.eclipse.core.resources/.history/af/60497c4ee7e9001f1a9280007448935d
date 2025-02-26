@@ -1,0 +1,75 @@
+package com.example.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.dto.BookingDTO;
+import com.example.entity.Booking;
+import com.example.exception.BookingNotFoundException;
+import com.example.repository.BookingRepository;
+
+@Service
+public class BookingServiceImpl implements BookingService {
+
+	@Autowired
+	BookingRepository repo ;
+
+	@Override
+	public String addBooking(Booking booking) {
+		repo.save(booking) ;
+		return "Booking added successfully" ; 
+	}
+
+	@Override
+	public Booking getBooking(int bookingId) throws BookingNotFoundException {
+		Optional<Booking> optional =  repo.findById(bookingId) ;
+		
+		Booking b =  optional.get()	 ;
+		if(b==null) {
+			throw new BookingNotFoundException("Booking Not Found") ;
+		}
+		return b ;
+	}
+
+	@Override
+	public List<Booking> getAllBookings() {
+		return repo.findAll()	 ;
+	}
+
+	@Override
+	public String updateBooking(Booking booking) throws BookingNotFoundException {
+		getBooking(booking.getBookingId()) ;   // For exception handling
+		repo.save(booking) ;
+		return "Booking details updated successfully" ;
+	}
+
+	@Override
+	public String deleteBooking(int bookingId) throws BookingNotFoundException {
+		getBooking(bookingId) ; // For exception handling
+		repo.deleteById(bookingId);
+		return "Booking canceled";
+	}
+
+	@Override
+	public List<BookingDTO> getAllBookingOfFlat(int flatId) throws BookingNotFoundException {
+		List<Booking> list =  repo.getAllBookingOfFlat(flatId) ;
+		List<BookingDTO> dtoList = new ArrayList<>() ;
+		for(Booking booking : list) {
+			BookingDTO bookingDTO = new BookingDTO(booking.getBookingId(), booking.getTenantId(), booking.getFlatId(), booking.getBookingFromDate(), booking.getBookingToDate()) ;
+			
+			dtoList.add(bookingDTO) ;
+		}
+		if(dtoList.isEmpty()) {
+			throw new BookingNotFoundException("No Bookings for this flat")	 ;
+		}
+		return dtoList ;
+		
+	}
+	
+	
+
+}

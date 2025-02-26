@@ -1,0 +1,50 @@
+package com.example.demo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.entity.Flat;
+import com.example.exception.FlatNotFoundException;
+import com.example.repository.FlatRepository;
+import com.example.service.FlatServiceImpl;
+
+@SpringBootTest
+class FlatServiceApplicationTests {
+
+	@Mock
+    private FlatRepository flatRepository; // Assuming you have a repository or DAO for Flat
+
+   
+    @InjectMocks
+    private FlatServiceImpl flatServiceImpl; // Your service class that contains getAllFlatsOfLandlordWithBookings method
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+   
+    @Test
+    public void testUpdateFlat(Flat flat) {
+//    	Flat flat1 = new Flat(1, (double) 1000, "Address1", "available", 2);
+    
+    	try {
+			assertEquals("Flat deleted successfully", flatServiceImpl.deleteFlat(1));
+		} catch (FlatNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+
+
+
+	
+	
+	
+
+}

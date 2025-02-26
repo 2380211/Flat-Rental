@@ -1,0 +1,8 @@
+package com.example.exception;
+
+public class LandlordNotFoundException extends Exception{
+
+	public FlatNotFoundException(String message) {
+		super(message) ;
+	}
+}

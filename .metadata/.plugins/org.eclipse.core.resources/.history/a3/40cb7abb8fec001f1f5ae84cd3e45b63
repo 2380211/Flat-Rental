@@ -1,0 +1,202 @@
+package com.example.service;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.client.BookingClient;
+import com.example.dto.BookingDTO;
+import com.example.dto.FlatDTO;
+import com.example.entity.BookingResponse;
+import com.example.entity.Flat;
+import com.example.exception.FlatNotFoundException;
+import com.example.repository.FlatRepository;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
+@Service
+public class FlatServiceImpl implements FlatService {
+
+	@Autowired
+	FlatRepository repo;
+
+	@Autowired
+	BookingClient client;
+
+	/**
+	 * Adds a new flat to the repository.
+	 * 
+	 * @param flat the flat entity to be added
+	 * @return the saved flat entity
+	 */
+	@Override
+	public Flat addFlat(Flat flat) {
+
+		return repo.save(flat);
+	}
+
+	/**
+	 * Retrieves a flat by its ID.
+	 * 
+	 * @param flatId the ID of the flat to be retrieved
+	 * @return the flat entity if found
+	 * @throws FlatNotFoundException if the flat is not found
+	 */
+	@Override
+	public Flat getFlat(int flatId) throws FlatNotFoundException {
+
+		Flat optional = repo.findById(flatId).orElseThrow(() -> new FlatNotFoundException("Flat not found"));
+		return optional;
+
+	}
+
+	/**
+	 * Retrieves all flats from the repository.
+	 * 
+	 * @return a list of all flat entities
+	 */
+	@Override
+	public List<Flat> getAllFlats() {
+
+		return repo.findAll();
+
+	}
+
+	/**
+	 * Updates the details of an existing flat.
+	 * 
+	 * @param flat the flat entity with updated details
+	 * @return a success message
+	 * @throws FlatNotFoundException if the flat is not found
+	 */
+	@Override
+	public String updateFlat(Flat flat) throws FlatNotFoundException {
+		getFlat(flat.getFlatId());
+		repo.save(flat);
+		return "Flat details have been updated successfully";
+	}
+
+	/**
+	 * Deletes a flat by its ID.
+	 * 
+	 * @param flatId the ID of the flat to be deleted
+	 * @return a success message
+	 * @throws FlatNotFoundException if the flat is not found
+	 */
+	@Override
+	public String deleteFlat(int flatId) throws FlatNotFoundException {
+		getFlat(flatId);
+		repo.deleteById(flatId);
+		return "Flat deleted successfully";
+	}
+
+	// Additional methods
+
+	/**
+	 * Retrieves all flats associated with a specific landlord ID.
+	 * 
+	 * @param landlordId the ID of the landlord
+	 * @return a list of flats associated with the landlord
+	 * @throws FlatNotFoundException if no flats are found for the landlord
+	 */
+	@Override
+	public List<Flat> getAllFlatsByLandlordId(int landlordId) throws FlatNotFoundException {
+		List<Flat> list = repo.getAllFlatsByLandlordId(landlordId);
+		if (list.isEmpty()) {
+			throw new FlatNotFoundException("No Flats ");
+		}
+		return list;
+
+	}
+
+	/**
+	 * Retrieves all bookings for a specific flat using a circuit breaker for fault
+	 * tolerance.
+	 * 
+	 * @param flatId the ID of the flat
+	 * @return a list of bookings for the flat
+	 */
+	@CircuitBreaker(name = "GetAllBookingsOfFlat", fallbackMethod = "fallbackGetAllBookingsOfFlat")
+	@Override
+	public List<BookingDTO> getAllBookingsOfFlat(int flatId) {
+
+		return client.getAllBookingOfFlat(flatId);
+	}
+
+	/**
+	 * Retrieves all flats of a specific landlord along with their bookings.
+	 * 
+	 * @param landlordId the ID of the landlord
+	 * @return a list of flat DTOs containing flat details and bookings
+	 * @throws FlatNotFoundException if no flats are found for the landlord
+	 */
+	@Override
+	public List<FlatDTO> getAllFlatsOfLandlordWithBookings(int landlordId) throws FlatNotFoundException {
+
+		List<FlatDTO> dtoList = new ArrayList<>();
+		List<Flat> list = getAllFlatsByLandlordId(landlordId);
+		for (Flat flat : list) {
+			FlatDTO dto = new FlatDTO(flat.getFlatId(), flat.getFlatRent(), flat.getFlatAddress(), flat.getStatus(),
+					flat.getLandlordId());
+			dtoList.add(dto);
+		}
+		if (dtoList.isEmpty()) {
+			throw new FlatNotFoundException("No Flats Available");
+		}
+		return dtoList;
+	}
+
+	/**
+	 * Fallback method for getAllBookingsOfFlat to handle failures.
+	 * 
+	 * @param flatId    the ID of the flat
+	 * @param throwable the exception that caused the fallback
+	 * @return a fallback booking response indicating the service is unavailable
+	 */
+	public BookingResponse fallbackGetAllBookingsOfFlat(int flatId, Throwable throwable) {
+		return new BookingResponse(false, "Fallback : Booking service is not available");
+	}
+
+	@Override
+	public List<FlatDTO> getAllAvailableFlats(LocalDate fromDate, LocalDate toDate) {
+
+		List<FlatDTO> availableFlatList = new ArrayList<>();
+		List<Flat> flatList = getAllFlats();
+		for (Flat flat : flatList) {
+
+			if (!checkBookingConflict(flat, fromDate, toDate)) {
+				FlatDTO dto = new FlatDTO(flat.getFlatId(), flat.getFlatRent(), flat.getFlatAddress(), flat.getStatus(),
+						flat.getLandlordId());
+				availableFlatList.add(dto);
+			}
+
+		}
+		if (availableFlatList.isEmpty()) {
+			throw new FlatNotFoundException("No Flats Available Between " + fromDate + " to " + toDate);
+		}
+		return availableFlatList;
+
+	}
+
+	public boolean checkBookingConflict(Flat flat, LocalDate fromDate, LocalDate toDate) {
+		
+		List<BookingDTO> bookingListOfFlat = client.getAllBookingOfFlat(flat.getFlatId()) ;
+		
+		for(BookingDTO booking : bookingListOfFlat) {
+			LocalDate bookedFromDate = booking.getBookingFromDate() ;
+			LocalDate bookedToDate = booking.getBookingFromDate()	;
+			 //					check if from date is between											check if to date is between										check if both is surrounding booked dates
+			if( ( fromDate.isBefore(bookedToDate) && fromDate.isAfter(bookedFromDate) ) || ( toDate.isBefore(bookedToDate) && toDate.isAfter(bookedFromDate) ) || (fromDate.isBefore(bookedFromDate) && toDate.isAfter(bookedToDate)) ) {
+				return true ;
+			}
+		}
+		
+		// if no conflicts in any of the booking
+		return false ;
+	}
+
+}

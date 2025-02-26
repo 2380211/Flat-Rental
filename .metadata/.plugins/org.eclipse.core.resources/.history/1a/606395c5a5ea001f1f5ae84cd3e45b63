@@ -1,0 +1,11 @@
+package com.example.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name = "TENANTSERVICE", path = "/tenant") 
+public interface TenantClient {	 
+	
+	@GetMapping("/addTenant") 
+	public 	String addTenant(Tenant tenant)
+	
+}

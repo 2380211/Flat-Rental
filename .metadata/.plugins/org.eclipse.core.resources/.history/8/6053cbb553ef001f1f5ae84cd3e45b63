@@ -1,0 +1,100 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.dto.FlatDTO;
+import com.example.entity.Landlord;
+import com.example.exception.LandlordNotFoundException;
+import com.example.service.LandlordService;
+
+import jakarta.validation.Valid;
+
+@RestController // Marks this class as a RESTful web service controller
+@RequestMapping("/landlord") // Base URL for all endpoints in this controller
+public class LandlordController {
+
+    @Autowired // Injects the LandlordService bean into this controller
+    LandlordService service;
+
+    /**
+     * Adds a new landlord.
+     * @param landlord The landlord to be added.
+     * @return A success message.
+     */
+    @PostMapping("/add")
+    public String addLandlord(@RequestBody @Valid Landlord landlord) {
+        return service.addLandlord(landlord);
+    }
+
+    /**
+     * Retrieves a landlord by ID.
+     * @param landlordId The ID of the landlord to be retrieved.
+     * @return The landlord with the specified ID.
+     * @throws LandlordNotFoundException If the landlord with the specified ID is not found.
+     */
+    @GetMapping("/get/{landlordId}")
+    public Landlord getLandlord(@PathVariable int landlordId) throws LandlordNotFoundException {
+        return service.getLandlord(landlordId);
+    }
+
+    /**
+     * Retrieves all landlords.
+     * @return A list of all landlords.
+     */
+    @GetMapping("/getAll")
+    public List<Landlord> getAll() {
+        return service.getAllLandlord();
+    }
+
+    /**
+     * Updates an existing landlord.
+     * @param landlord The landlord with updated information.
+     * @return A success message.
+     * @throws LandlordNotFoundException If the landlord is not found.
+     */
+    @PutMapping("/update")
+    public String updateLandlord(@RequestBody @Valid Landlord landlord) throws LandlordNotFoundException {
+        return service.updateLandlord(landlord);
+    }
+
+    /**
+     * Deletes a landlord by ID.
+     * @param landlordId The ID of the landlord to be deleted.
+     * @return A success message.
+     * @throws LandlordNotFoundException If the landlord with the specified ID is not found.
+     */
+    @DeleteMapping("/delete/{landlordId}")
+    public String deleteLandlord(@PathVariable int landlordId) throws LandlordNotFoundException {
+        return service.deleteLandlord(landlordId);
+    }
+
+    // Methods for managing flats associated with a landlord
+
+    /**
+     * Adds a new flat.
+     * @param flat The flat to be added.
+     * @return A success message.
+     */
+    @PostMapping("/addFlat")
+    public String addFlat(@RequestBody FlatDTO flat) {
+        return service.addFlat(flat);
+    }
+
+    /**
+     * Retrieves a flat by ID.
+     * @param flatId The ID of the flat to be retrieved.
+     * @return The flat with the specified ID.
+     */
+    @GetMapping("/getFlat/{flatId}")
+    public FlatDTO getFlat(@PathVariable int flatId) {
+        return service.get

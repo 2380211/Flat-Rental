@@ -1,0 +1,62 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.dto.BookingDTO;
+import com.example.entity.Tenant;
+import com.example.exception.TenantNotFoundException;
+import com.example.service.TenantService;
+
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/tenant")
+public class TenantController {
+
+	@Autowired
+	TenantService service ;
+	
+	@PostMapping("/add")
+	public String addTenant(@RequestBody Tenant tenant) {
+		return service.addTenant(tenant) ;	
+	}
+	
+	@GetMapping("/get/{tenantId}")
+	public Tenant getTanant(@PathVariable int tenantId) throws TenantNotFoundException {
+		return service.getTenant(tenantId) ;
+	}
+	
+	@GetMapping("/getAll")
+	public List<Tenant> getAll() {
+		return service.getAllTenant() ;
+	}
+	
+	@PutMapping("/update")
+	public String updateTenant(@RequestBody Tenant tenant) throws TenantNotFoundException{
+		return service.updateTenant(tenant) ;
+	}
+	
+	@DeleteMapping("/delete/{tenantId}")
+	public String deleteTenant( @PathVariable int tenantId) throws TenantNotFoundException {
+		return service.deleteTenant(tenantId) ;
+	}
+	
+	// Additional methods
+	
+	@PostMapping("/bookFlat")
+	public String bookFlat(@RequestBody  @Valid BookingDTO bookingdto) {
+		return service.bookFlat(bookingdto) ;
+	}
+	
+	
+}

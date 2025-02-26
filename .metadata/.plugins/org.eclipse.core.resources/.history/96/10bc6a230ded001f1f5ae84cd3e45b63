@@ -1,0 +1,12 @@
+package com.example.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@FeignClient(name = "booking", url = "http://localhost:4444/booking/")
+public interface BookingClient {
+
+	@PostMapping("/add/{tenantId}/{flatId}")
+	public String bookFlat(@PathVariable int tenantId, @PathVariable int flatId);
+}

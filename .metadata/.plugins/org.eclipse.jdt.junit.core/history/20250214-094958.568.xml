@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FlatServiceApplicationTests" project="FlatService" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.example.demo.FlatServiceApplicationTests" time="0.193" displayname="FlatServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]">
+    <testcase name="testUpdateFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.193" displayname="testUpdateFlat()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testUpdateFlat()]">
+      <error>com.example.exception.FlatNotFoundException: Flat Not Found with given id&#13;
+	at com.example.service.FlatServiceImpl.getFlat(FlatServiceImpl.java:59)&#13;
+	at com.example.service.FlatServiceImpl.deleteFlat(FlatServiceImpl.java:99)&#13;
+	at com.example.demo.FlatServiceApplicationTests.testUpdateFlat(FlatServiceApplicationTests.java:36)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

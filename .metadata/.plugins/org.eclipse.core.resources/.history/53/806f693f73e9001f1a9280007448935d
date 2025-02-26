@@ -1,0 +1,17 @@
+package com.example.client;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.dto.FlatDTO;
+
+@FeignClient(name = "flat", url = "http://localhost:1111/flat") 
+public interface FlatClient {
+
+	@GetMapping("/getAllFlatsOfLandlord/{landlordId}") 
+	public List<FlatDTO> getAllFlatsOfLandlord(@PathVariable int landlordId) ;
+	
+}

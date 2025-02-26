@@ -1,0 +1,67 @@
+package com.example.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.client.FlatClient;
+import com.example.dto.FlatDTO;
+import com.example.entity.Landlord;
+import com.example.exception.LandlordNotFoundException;
+import com.example.repository.LandlordRepository;
+
+@Service
+public class LandlordServiceImpl implements LandlordService {
+
+	@Autowired
+	LandlordRepository repo ;
+	
+	@Autowired
+	FlatClient flatClient ;
+	
+	@Override
+	public String addLandlord(Landlord landlord) {
+		repo.save(landlord) ;
+		return "Landlord has been added successfully";
+	}
+
+	@Override
+	public Landlord getLandlord(int landlordId) throws LandlordNotFoundException {
+		Optional<Landlord> optional = repo.findById(landlordId) ;
+		Landlord landlord = optional.get() ;
+		if(landlord==null) {
+			throw new LandlordNotFoundException("Landlord Not Found") ;
+		}
+		return landlord ;
+	}
+
+	@Override
+	public List<Landlord> getAllLandlord() {
+		return repo.findAll()	;
+	}
+
+	@Override
+	public String updateLandlord(Landlord landlord) throws LandlordNotFoundException {
+		getLandlord(landlord.getLandlordId()) ;
+		repo.save(landlord) ;
+		return "Landlord have been Updated Successfully";
+	}
+
+	@Override
+	public String deleteLandlord(int landlordId) throws LandlordNotFoundException {
+		getLandlord(landlordId) ;
+		repo.deleteById(landlordId);
+		return "Landlord have been removed" ;
+	}
+
+	@Override
+	public List<FlatDTO> getAllFlatsOfLandlord(int landlordId) {
+		return flatClient.getAllFlatsOfLandlord(landlordId) ;
+		
+	}
+	
+
+
+}

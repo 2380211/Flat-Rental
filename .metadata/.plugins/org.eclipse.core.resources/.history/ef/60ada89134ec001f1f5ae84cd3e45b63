@@ -1,0 +1,8 @@
+package com.example.exception;
+
+public class FlatNotFoundException extends Exception{
+
+	public FlatNotFoundException(String message) {
+		super(message) ;
+	}
+}

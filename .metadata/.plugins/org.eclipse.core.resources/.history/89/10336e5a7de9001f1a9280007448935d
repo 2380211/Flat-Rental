@@ -1,0 +1,65 @@
+package com.example.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.client.BookingClient;
+import com.example.dto.BookingDTO;
+import com.example.entity.Tenant;
+import com.example.exception.TenantNotFoundException;
+import com.example.repository.TenantRepository;
+
+@Service
+public class TenantServiceImpl implements TenantService {
+
+	@Autowired
+	TenantRepository repo ;
+	
+	@Autowired
+	BookingClient bookingClient ;
+	
+	@Override
+	public String addTenant(Tenant tenant) {
+		repo.save(tenant) ;
+		return "Tenant has been added successfully";
+	}
+
+	@Override
+	public Tenant getTenant(int tenantId) throws TenantNotFoundException {
+		Optional<Tenant> optional = repo.findById(tenantId) ;
+		Tenant tenant = optional.get() ;
+		if(tenant==null) {
+			throw new TenantNotFoundException("Tenant Not Found") ;
+		}
+		return  tenant ;	
+	}
+
+	@Override
+	public List<Tenant> getAllTenant() {
+		return repo.findAll()	;
+	}
+
+	@Override
+	public String updateTenant(Tenant tenant) throws TenantNotFoundException {
+		getTenant(tenant.getTenantId()) ;
+		repo.save(tenant) ;
+		return "Tenant have been Updated Successfully";
+	}
+
+	@Override
+	public String deleteTenant(int tenantId) throws TenantNotFoundException {
+		getTenant(tenantId) ;
+		repo.deleteById(tenantId);
+		return "Tenant have been removed" ;
+	}
+
+	@Override
+	public String bookFlat(BookingDTO bookingdto) {
+		return bookingClient.bookFlat(bookingdto) ;
+	}
+
+
+}

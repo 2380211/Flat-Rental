@@ -1,0 +1,16 @@
+package com.example.dto;
+
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class BookingDTO {
+
+	private  int tenantId;
+	private int flatId ;
+	private LocalDate bookingFromDate;
+	private LocalDate bookingToDate;
+	
+	}
+	
+}

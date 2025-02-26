@@ -1,0 +1,15 @@
+package com.example.client;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.dto.FlatDTO;
+
+@FeignClient(name = "FLATSERVICE")
+public interface FlatClient {
+	
+	@GetMapping("/getAllAvailableFlats")
+	public List<FlatDTO> getAllAvailableFlats() ;
+}

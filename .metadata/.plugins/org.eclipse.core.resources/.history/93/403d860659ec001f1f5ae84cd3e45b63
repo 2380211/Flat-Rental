@@ -1,0 +1,14 @@
+package com.example.dto;
+
+public class FlatDTO {
+	
+	private Double flatRent;
+	
+	private String flatAddress;
+	
+	private String status;
+	
+	private Integer landlordId ;
+	
+
+}

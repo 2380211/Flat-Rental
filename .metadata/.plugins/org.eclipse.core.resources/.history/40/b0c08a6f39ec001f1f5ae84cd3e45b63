@@ -1,0 +1,20 @@
+package com.example.dto;
+
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class FlatDTO {
+
+	private Integer flatId;
+	private Double flatRent;
+	private String flatAddress;
+	private String availability;
+	private Integer landlordId ;
+	private List<BookingDTO> booking ;
+}

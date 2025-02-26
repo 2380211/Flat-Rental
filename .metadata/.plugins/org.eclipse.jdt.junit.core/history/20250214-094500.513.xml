@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FlatServiceApplicationTests" project="FlatService" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.example.demo.FlatServiceApplicationTests" time="0.133" displayname="FlatServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]">
+    <testcase name="testUpdateFlat" classname="com.example.demo.FlatServiceApplicationTests" time="0.133" displayname="testUpdateFlat(Flat)" parameters="com.example.entity.Flat" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.FlatServiceApplicationTests]/[method:testUpdateFlat(com.example.entity.Flat)]">
+      <error>org.junit.jupiter.api.extension.ParameterResolutionException: No ParameterResolver registered for parameter [com.example.entity.Flat flat] in method [public void com.example.demo.FlatServiceApplicationTests.testUpdateFlat(com.example.entity.Flat) throws com.example.exception.FlatNotFoundException].&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

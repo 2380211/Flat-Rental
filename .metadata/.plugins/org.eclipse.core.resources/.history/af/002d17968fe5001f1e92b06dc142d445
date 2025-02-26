@@ -1,0 +1,47 @@
+package com.example.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.entity.Landlord;
+import com.example.repository.LandlordRepository;
+
+@Service
+public class LandlordServiceImpl implements LandlordService {
+
+	@Autowired
+	LandlordRepository repo ;
+	@Override
+	public String addLandlord(Landlord landlord) {
+		repo.save(landlord) ;
+		return "Landlord has been added successfully";
+	}
+
+	@Override
+	public Landlord getLandlord(int landlordId) {
+		Optional<Landlord> optional = repo.findById(landlordId) ;
+		return optional.get() ;
+	}
+
+	@Override
+	public List<Landlord> getAllLandlord() {
+		return repo.findAll()	;
+	}
+
+	@Override
+	public String updateLandlord(Landlord landlord) {
+		repo.save(landlord) ;
+		return "Tenant have been Updated Successfully";
+	}
+
+	@Override
+	public String deleteLandlord(int landlordId) {
+		repo.deleteById(landlordId);
+		return "Landlord have been removed" ;
+	}
+
+
+}

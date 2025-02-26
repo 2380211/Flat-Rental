@@ -1,0 +1,19 @@
+package com.example.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.dto.FlatDTO;
+
+@FeignClient(name = "FLATSERVICE" , path = "/flat")
+public interface FlatClient {
+
+	@PutMapping("/setStatus/{flatId}")
+	public void setStatus(@PathVariable int flatId, @RequestParam String status) ;
+	
+	@GetMapping("/getFlat/{flatId}")
+	public FlatDTO getFlat(@PathVariable int flatId);
+}

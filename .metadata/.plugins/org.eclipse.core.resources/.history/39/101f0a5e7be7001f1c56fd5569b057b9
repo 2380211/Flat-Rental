@@ -1,0 +1,12 @@
+package com.example.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient(name = "flat", url = "http://localhost:1111/flat") 
+public interface FlatClient {
+
+	@GetMapping("http://localhost:1111/flat/getAllFlatsOfLandlord") 
+	public String getAllFlatsOfLandlord(int landlordId) ;
+	
+}

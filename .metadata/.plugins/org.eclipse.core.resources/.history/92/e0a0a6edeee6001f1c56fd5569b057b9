@@ -1,0 +1,7 @@
+package com.example.client;
+
+@FeignClient(name = "booking" ,  url = "http://localhost/4444/booking")
+public interface BookingClient  {
+
+	public 
+}

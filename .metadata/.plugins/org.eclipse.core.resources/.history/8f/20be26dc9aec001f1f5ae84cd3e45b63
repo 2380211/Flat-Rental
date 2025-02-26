@@ -1,0 +1,55 @@
+package com.example.demo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.FlatServiceApplication;
+import com.example.entity.Flat;
+import com.example.exception.FlatNotFoundException;
+import com.example.repository.FlatRepository;
+import com.example.service.FlatServiceImpl;
+
+@SpringBootTest(classes = FlatServiceApplication.class)
+class FlatServiceApplicationTests {
+
+	@Mock
+    private FlatRepository flatRepository; // Assuming you have a repository or DAO for Flat
+
+   
+    @InjectMocks
+    private FlatServiceImpl flatServiceImpl; // Your service class that contains getAllFlatsOfLandlordWithBookings method
+
+    Flat flat = null;
+    
+    @BeforeEach
+    public void setUp() {
+//        MockitoAnnotations.openMocks(this);
+    	flat = new Flat(1, 2000d,"HYD","AVAILABLE",1);
+    }
+   
+
+    @Test
+    public void testAddFlat() {
+    	when(flatRepository.save(flat)).thenReturn(flat);
+    	assertEquals(flat,flatServiceImpl.addFlat(flat));
+    }
+
+    @Test
+    public void testUpdateFlat() {
+    	when(flatRepository.save(flat)).thenReturn(flat);
+    	assertEquals(flat,flatServiceImpl.addFlat(flat));
+    }
+
+	
+	
+	
+
+}

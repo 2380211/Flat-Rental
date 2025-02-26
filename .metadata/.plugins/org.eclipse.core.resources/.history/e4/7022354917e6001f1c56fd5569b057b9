@@ -1,0 +1,52 @@
+package com.example.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.entity.Flat;
+import com.example.repository.FlatRepository;
+
+@Service
+public class FlatServiceImpl implements FlatService {
+
+	@Autowired
+	FlatRepository repo ;
+	
+	@Override
+	public Flat addFlat(Flat flat) {
+		
+		return repo.save(flat) ;
+	}
+
+	@Override
+	public Flat getFlat(int flatId) {
+		
+		Optional<Flat> optional = repo.findById(flatId);
+		return optional.get() ;
+	}
+
+	@Override
+	public List<Flat> getAllFlats() {
+		
+		return repo.findAll();
+		
+	}
+
+	@Override
+	public String updateFlat(Flat flat) {
+
+		repo.save(flat) ;
+		return "Flat details have been updated successfully" ;
+	}
+
+	@Override
+	public String deleteFlat(int flatId) {
+
+		repo.deleteById(flatId);
+		return "Flat deleted successfully" ;
+	}
+
+}

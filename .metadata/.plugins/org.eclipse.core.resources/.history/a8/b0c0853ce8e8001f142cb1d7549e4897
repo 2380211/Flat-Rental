@@ -1,0 +1,23 @@
+package com.example.service;
+
+import java.util.List;
+
+import com.example.dto.BookingDTO;
+import com.example.entity.Flat;
+
+public interface FlatService {
+
+	public Flat addFlat(Flat flat) ;
+
+	public Flat getFlat(int flatId);
+
+	public List<Flat> getAllFlats();
+
+	public String updateFlat(Flat flat);
+
+	public String deleteFlat(int flatId);
+
+	public List<Flat> getAllFlatsByLandlordId(int landlordId);
+
+	public List<BookingDTO> getAllBookingsOfFlat(int flatId);
+}

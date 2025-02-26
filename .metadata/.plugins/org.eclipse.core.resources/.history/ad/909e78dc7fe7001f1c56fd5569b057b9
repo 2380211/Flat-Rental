@@ -1,0 +1,20 @@
+package com.example.service;
+
+import java.util.List;
+
+import com.example.entity.Tenant;
+
+public interface TenantService {
+
+	public String addTenant(Tenant tenant);
+
+	public Tenant getTenant(int tenantId);
+
+	public List<Tenant> getAllTenant();
+
+	public String updateTenant(Tenant tenant);
+
+	public String deleteTenant(int tenantId);
+
+	
+}

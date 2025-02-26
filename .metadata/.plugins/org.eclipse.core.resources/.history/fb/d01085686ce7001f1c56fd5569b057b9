@@ -1,0 +1,12 @@
+package dto;
+
+import java.time.LocalDate;
+
+public class BookingDTO {
+
+	private Integer bookingId;
+	private  Integer tenantId;
+	private Integer flatId ;
+	private LocalDate bookingFromDate;
+	private LocalDate bookingToDate;
+}

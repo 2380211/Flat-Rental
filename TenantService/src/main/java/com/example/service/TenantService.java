@@ -1,0 +1,31 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.dto.BookingDTO;
+import com.example.dto.FlatDTO;
+import com.example.entity.Tenant;
+import com.example.exception.TenantNotFoundException;
+
+public interface TenantService {
+
+	public String addTenant(Tenant tenant);
+
+	public Tenant getTenant(int tenantId) throws TenantNotFoundException ;
+
+	public List<Tenant> getAllTenant();
+
+	public String updateTenant(Tenant tenant) throws TenantNotFoundException;
+
+	public String deleteTenant(int tenantId) throws TenantNotFoundException;
+
+	public String bookFlat( int tenantId,  int flatId);
+
+	public List<FlatDTO> getAllAvailableFlats();
+
+	public List<BookingDTO> getAllTenantBookings(int tenantId);
+
+	
+}
